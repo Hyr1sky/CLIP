@@ -21,10 +21,12 @@ if __name__ == '__main__':
 
     if modelstype == 'base':
         run_similarity(searchpath, filepath, newfilepath, threshold1, threshold2)
+        files_num = len(os.listdir(newfilepath+"/base"))
     elif modelstype == 'clip-txt':
-        clip_txt2img(searchpath, filepath, newfilepath)
+        clip_txt2img(searchpath, filepath, newfilepath, threshold2)
+        files_num = len(os.listdir(newfilepath+"/txt2img"))
     elif modelstype == 'clip-img':
-        clip_img2img(searchpath, filepath, newfilepath)
+        clip_img2img(searchpath, filepath, newfilepath, threshold2)
+        files_num = len(os.listdir(newfilepath+"/img2img"))
 
-    files_num = len(os.listdir(newfilepath))
     print("There are {} similar images in the folder".format(files_num))

@@ -4,6 +4,18 @@ import shutil
 from utils.similarity import calc_image_similarity
 
 def run_similarity(searchpath, filepath, newfilepath, threshold1, threshold2):
+    """
+    Image similarity search using basic mathmatical functions.
+
+    :param searchpath: images to be searched
+    :param filepath: target images
+    :param newfilepath: result
+    :param threshold1: similarity threshold
+    :param threshold2: similarity threshold
+    :return: None
+    """
+    newfilepath = os.path.join(newfilepath, "base")
+    
     for parent, dirnames, filenames in os.walk(searchpath):
         for srcfilename in filenames:
             img1_path = searchpath +"\\"+ srcfilename
