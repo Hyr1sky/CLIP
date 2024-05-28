@@ -8,6 +8,8 @@ def run_similarity(searchpath, filepath, newfilepath, threshold1, threshold2):
         for srcfilename in filenames:
             img1_path = searchpath +"\\"+ srcfilename
             for parent, dirnames, filenames in os.walk(filepath):
+                if srcfilename.endswith('.DS_Store'):
+                    continue
                 for i, filename in enumerate(filenames):
                     print("{}/{}: {} , {} ".format(i+1, len(filenames), srcfilename,filename))
                     img2_path = filepath + "\\" + filename

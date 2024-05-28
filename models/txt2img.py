@@ -18,6 +18,8 @@ def clip_txt2img(searchpath, filepath, newfilepath):
     with torch.no_grad():
         for parent, dirnames, filenames in os.walk(searchpath):
             for filename in filenames:
+                if filename.endswith('.DS_Store'):
+                    continue
                 img_path = os.path.join(parent, filename)
                 image = preprocess(Image.open(img_path)).unsqueeze(0).to(device)
                 image_features = model.encode_image(image)

@@ -6,6 +6,7 @@ from utils.similarity import calc_image_similarity
 from args.base_args import ImageSimilarityArguments
 from models.base import run_similarity
 from models.txt2img import clip_txt2img
+from models.img2img import clip_img2img
 
 
 if __name__ == '__main__':
@@ -20,8 +21,10 @@ if __name__ == '__main__':
 
     if modelstype == 'base':
         run_similarity(searchpath, filepath, newfilepath, threshold1, threshold2)
-    elif modelstype == 'clip':
+    elif modelstype == 'clip-txt':
         clip_txt2img(searchpath, filepath, newfilepath)
+    elif modelstype == 'clip-img':
+        clip_img2img(searchpath, filepath, newfilepath)
 
     files_num = len(os.listdir(newfilepath))
     print("There are {} similar images in the folder".format(files_num))
