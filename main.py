@@ -7,6 +7,7 @@ from args.base_args import ImageSimilarityArguments
 from models.base import run_similarity
 from models.txt2img import clip_txt2img
 from models.img2img import clip_img2img
+from models.towhee import towhee_similarity
 
 
 if __name__ == '__main__':
@@ -28,5 +29,8 @@ if __name__ == '__main__':
     elif modelstype == 'clip-img':
         clip_img2img(searchpath, filepath, newfilepath, threshold2)
         files_num = len(os.listdir(newfilepath+"/img2img"))
+    elif modelstype == 'towhee':
+        towhee_similarity(searchpath, filepath, newfilepath, threshold1, threshold2)
+        files_num = len(os.listdir(newfilepath+"/towhee"))
 
     print("There are {} similar images in the folder".format(files_num))
