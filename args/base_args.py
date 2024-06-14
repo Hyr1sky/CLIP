@@ -36,7 +36,6 @@ class ImageSimilarityArguments():
             default=0.95,
             help='Final similarity high judgment threshold'
         )
-
         self.parser.add_argument(
             '--model',
             default='base', 

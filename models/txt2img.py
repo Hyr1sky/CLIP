@@ -3,8 +3,11 @@ import clip
 import os
 import shutil
 import numpy as np
+import warnings
 
 from PIL import Image
+
+warnings.filterwarnings("ignore", "(?s).*Corrupt EXIF data.*", UserWarning)
 
 
 def clip_txt2img(searchpath, filepath, newfilepath, threshold):
